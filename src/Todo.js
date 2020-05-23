@@ -4,6 +4,7 @@ import EditTodoForm from './EditTodoForm'
 
 const Todo = ({task, remove, changeTodo, id}) => {
     const [editForm, setEditForm] = useState("")
+    const [completed, setCompleted] = useState(false)
 
     // add an edit form to the todo
     const editClick = () => {
@@ -12,7 +13,6 @@ const Todo = ({task, remove, changeTodo, id}) => {
                                 id={id} 
                                 changeTodo={changeTodo}
                                 removeEditForm={removeEditForm} />
-        
         }) 
     }
 
@@ -21,12 +21,20 @@ const Todo = ({task, remove, changeTodo, id}) => {
         setEditForm("")
     }
 
+    const lineThrough = () => {
+        setCompleted(!completed)
+        
+    }
+ 
     return (
         <li className="Todo">
             {editForm}
             <button className="Todo-btn" onClick={editClick}>Edit</button>
-            {task}
-            <button className="Todo-btn" onClick={remove}>X</button>
+            <span style={completed ? {textDecoration: "line-through"}: null}>
+                {task}
+            </span>
+            <button className="Todo-btn" onClick={lineThrough}>Mark as Done</button>
+            <button className="Todo-btn" onClick={remove}>Delete</button>
         </li>
     )
 }
