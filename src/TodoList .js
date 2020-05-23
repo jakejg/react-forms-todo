@@ -1,39 +1,37 @@
 import React, { useState } from "react";
-import NewBoxForm from './NewTodoForm';
-import Box from "./Todo";
+import NewTodoForm from './NewTodoForm';
+import Todo from "./Todo";
 import { v4 as uuid} from 'uuid';
 
-const BoxList = () => {
-    const [boxes, setBoxes] = useState([]);
+const TodoList = () => {
+    const [todos, setTodos] = useState([]);
 
-    const addBox = (width, height, backgroundColor) => {
+    const addTodo = (task) => {
         const id = uuid();
-        setBoxes(boxes => {
-            const boxesCopy = [...boxes, {width, height, backgroundColor, id}];
-            return boxesCopy;
+        setTodos(todos => {
+            const todoCopy = [...todos, {task, id}];
+            return todoCopy;
         })
     }
 
     const remove = (id) => {
-        setBoxes(boxes =>  boxes.filter(box => box.id !== id));
+        setTodos(todos =>  todos.filter(todo => todo.id !== id));
     }
 
-    const boxlist = boxes.map(({backgroundColor, width, height, id}) => {
-        return <Box 
+    const todolist = todos.map(({task, id}) => {
+        return <Todo
             key={id}
-            backgroundColor={backgroundColor}
-            width={width}
-            height={height}
+            task={task}
             remove={() => remove(id)}
         />
     });
   
     return (
         <div>
-            <NewBoxForm addBox={addBox} />
-            {boxlist}
+            <NewTodoForm addTodo={addTodo} />
+            {todolist}
         </div>
     )
 }
 
-export default BoxList;
+export default TodoList;

@@ -1,0 +1,11 @@
+.Todo {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: thistle;
+}
+
+.Todo-btn {
+    margin: 5px;
+}

@@ -1,14 +1,16 @@
 import React from "react";
 import "./Todo.css"
 
-const Todo = ({backgroundColor="cyan", width=50, height=50, remove}) => {
+const Todo = ({task, remove}) => {
 
     return (
-        <>
-            <div className="Box" style={{backgroundColor, width, height}}></div>
-            <button onClick={remove}>X</button>
-        </>
+        <ul>
+            <li className="Todo">
+                {task}
+                <button className="Todo-btn" onClick={remove}>X</button>
+            </li>
+        </ul>
     )
 }
 
-export default Box;
+export default Todo;
