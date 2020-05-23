@@ -18,6 +18,7 @@ const EditTodoForm = ({task, changeTodo , id, removeEditForm}) => {
     return (
         <form>
             <input type="text"
+                    data-testid="editInput"
                     value={formData}
                     onChange={handleChange} />
             <button onClick={handleSubmit}>Change</button>

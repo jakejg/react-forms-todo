@@ -22,13 +22,13 @@ const NewTodoForm = ({addTodo}) => {
 
     return (
         <form>
-            <label htmlFor="width">Add a Todo</label>
+            <label htmlFor="task">Add a Todo</label>
             <input type="text" 
                     id="task"
                     name="task"
                     value={formData.task}
                     onChange={handleChange} />
-            <button onClick={handleSubmit}>Create a Box</button>
+            <button onClick={handleSubmit}>Add</button>
         </form>
     )
 }
