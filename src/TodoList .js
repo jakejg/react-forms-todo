@@ -18,18 +18,32 @@ const TodoList = () => {
         setTodos(todos =>  todos.filter(todo => todo.id !== id));
     }
 
+    const changeTodo = (id, task) => {
+        console.log(id)
+        console.log(task)
+        setTodos(todos => todos.map(todo => {
+            if (todo.id === id) todo.task = task;
+            return todo
+        })
+        )
+    }
+
     const todolist = todos.map(({task, id}) => {
         return <Todo
             key={id}
             task={task}
+            id = {id}
             remove={() => remove(id)}
+            changeTodo={changeTodo}
         />
     });
   
-    return (
+    return ( 
         <div>
             <NewTodoForm addTodo={addTodo} />
-            {todolist}
+            <ul>
+                {todolist}
+            </ul>
         </div>
     )
 }

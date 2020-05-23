@@ -1,5 +1,6 @@
 .Todo {
-    display: inline-block;
+    list-style: none;
+    width: fit-content;
     margin: 5px;
     padding: 10px;
     border-radius: 30px;
@@ -8,4 +9,15 @@
 
 .Todo-btn {
     margin: 5px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
