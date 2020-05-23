@@ -21,6 +21,7 @@ const Todo = ({task, remove, changeTodo, id}) => {
         setEditForm("")
     }
 
+    //cross off a todo
     const lineThrough = () => {
         setCompleted(!completed)
         
@@ -30,7 +31,7 @@ const Todo = ({task, remove, changeTodo, id}) => {
         <li className="Todo">
             {editForm}
             <button className="Todo-btn" onClick={editClick}>Edit</button>
-            <span style={completed ? {textDecoration: "line-through"}: null}>
+            <span className="Todo-task" style={completed ? {textDecoration: "line-through"}: null}>
                 {task}
             </span>
             <button className="Todo-btn" onClick={lineThrough}>Mark as Done</button>
